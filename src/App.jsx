@@ -20,20 +20,19 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'about', 'services', 'membership', 'trainers', 'gallery', 'contact'];
+      const validPages = ['about', 'services', 'membership', 'trainers', 'gallery', 'contact'];
       if (validPages.includes(hash)) {
         setActivePage(hash);
+      } else {
+        // Default to 'home' when there is no hash or hash is invalid/home
+        setActivePage('home');
       }
     };
 
     window.addEventListener('hashchange', handleHashChange);
     
     // Initial mount page lookup
-    if (window.location.hash) {
-      handleHashChange();
-    } else {
-      window.location.hash = 'home';
-    }
+    handleHashChange();
 
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -41,7 +40,14 @@ export default function App() {
   // Update hash when activePage state changes
   const handlePageChange = (pageId) => {
     setActivePage(pageId);
-    window.location.hash = pageId;
+    if (pageId === 'home') {
+      // Cleanly remove hash from browser history & URL bar without reloading
+      if (window.location.hash) {
+        window.history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
+    } else {
+      window.location.hash = pageId;
+    }
   };
 
   // Render Page Component based on current activePage state
