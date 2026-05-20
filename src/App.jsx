@@ -26,6 +26,9 @@ export default function App() {
       } else {
         // Default to 'home' when there is no hash or hash is invalid/home
         setActivePage('home');
+        if (window.location.hash) {
+          window.history.replaceState("", document.title, window.location.pathname + window.location.search);
+        }
       }
     };
 
@@ -43,7 +46,7 @@ export default function App() {
     if (pageId === 'home') {
       // Cleanly remove hash from browser history & URL bar without reloading
       if (window.location.hash) {
-        window.history.pushState("", document.title, window.location.pathname + window.location.search);
+        window.history.replaceState("", document.title, window.location.pathname + window.location.search);
       }
     } else {
       window.location.hash = pageId;
