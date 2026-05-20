@@ -1,5 +1,6 @@
 import React from 'react';
-import { Award, CheckCircle2, MessageSquare } from 'lucide-react';
+import { Award, CheckCircle2 } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 export default function TrainersPage() {
   const trainers = [
@@ -124,9 +125,9 @@ export default function TrainersPage() {
                 {/* Direct Action WhatsApp Trigger */}
                 <button
                   onClick={() => handleWhatsAppConsult(trainer.name)}
-                  className="w-full py-3 bg-dark-light hover:bg-primary hover:text-white border border-dark-border hover:border-primary text-gray-300 font-black text-xs uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
+                  className="w-full py-3 bg-dark-light hover:bg-[#25d366] hover:text-white border border-dark-border hover:border-[#25d366] text-gray-300 font-black text-xs uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
                 >
-                  <MessageSquare className="w-4 h-4 fill-current" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   <span>Book Consultation</span>
                 </button>
               </div>

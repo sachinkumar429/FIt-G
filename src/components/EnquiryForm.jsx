@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, MessageSquare, AlertTriangle } from 'lucide-react';
+import { Send, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function EnquiryForm() {
   const [formData, setFormData] = useState({
@@ -186,7 +187,7 @@ export default function EnquiryForm() {
               onClick={triggerWhatsAppRedirect}
               className="w-full py-4 bg-[#25d366] hover:bg-[#20ba5a] text-white font-black text-xs uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] active:scale-95"
             >
-              <MessageSquare className="w-4 h-4 fill-current" />
+              <WhatsAppIcon className="w-5 h-5" />
               <span>Connect on WhatsApp</span>
             </button>
             <button
