@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff0f39;
+  --color-primary-dark: #b30522;
+  --color-primary-light: #ff4d6d;
+  
+  --color-dark: #050505;
+  --color-dark-card: #121212;
+  --color-dark-border: #222222;
+  --color-dark-light: #1a1a1a;
+  --color-dark-gray: #888888;
+  
+  --color-marvel-gold: #f0a500;
+  --color-marvel-blue: #00d2ff;
+  
+  --font-sans: "Outfit", "Inter", sans-serif;
+  
+  --shadow-glow-red: 0 0 15px rgba(255, 15, 57, 0.45);
+  --shadow-glow-red-intense: 0 0 30px rgba(255, 15, 57, 0.75);
+  --shadow-glow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --shadow-glow-border: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white;
+  }
+}
+
+/* Glassmorphism Stylesheet */
+.glassmorphism {
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glassmorphism-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glassmorphism-hover:hover {
+  background: rgba(20, 20, 20, 0.8);
+  border-color: rgba(255, 15, 57, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(255, 15, 57, 0.2);
+  transform: translateY(-4px);
+}
+
+.glassmorphism-glow {
+  background: rgba(15, 15, 15, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 15, 57, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 15, 57, 0.1);
+}
+
+/* Marvel Cyberpunk Highlights */
+.text-outline-neon {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15);
+  transition: all 0.5s ease;
+}
+
+.text-outline-neon:hover {
+  -webkit-text-stroke: 1.5px rgba(255, 15, 57, 0.8);
+  text-shadow: 0 0 15px rgba(255, 15, 57, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 9999px;
+  border: 2px solid #050505;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff0f39;
+}
+
+/* Diagonal Layout Cuts */
+.diagonal-box-right {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.diagonal-box-left {
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Keyframes for glowing effects */
+@keyframes redPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 15, 57, 0.35);
+    border-color: rgba(255, 15, 57, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 15, 57, 0.7);
+    border-color: rgba(255, 15, 57, 0.55);
+  }
+}
+
+.animate-glow-pulse {
+  animation: redPulse 3s infinite ease-in-out;
+}
+
+/* Image zoom styling */
+.img-zoom-container {
+  overflow: hidden;
+}
+.img-zoom-container img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.08);
+}
